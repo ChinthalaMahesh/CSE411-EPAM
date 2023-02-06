@@ -1,0 +1,30 @@
+bitwise-operators..........
+& AND, | OR, ^ XOR, ~ Compliment, << leftshift, >> Rightshift
+read -p a : 'a
+read -p b : 'b
+
+
+file test operators.......
+-b,-c,-d check directory exist or not,-e file exist or not,-s file empty or not,
+-p to check exist, -s empty or not 
+read -p 'Enter file name' : 'Filename
+if [ -e $FileName ]
+then
+     echo File Exist
+else
+     echo File doesnot exist
+fi
+......................
+WHILE LOOP
+
+while command
+do
+   statements to be executed if command is true
+done
+........................
+str="shell program"  or str=shell program  to assign
+echo $str
+( sub=${str:6:2}
+echo $sub   ## to extract the content of string
+echo ${#sub}
+at command
