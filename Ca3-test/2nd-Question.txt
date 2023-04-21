@@ -1,0 +1,44 @@
+2nd question -- ec2 configuration with ansible
+
+ubuntu@ip-172-31-88-205:~/ansible$ ansible all -m ping
+The authenticity of host '107.22.154.37 (107.22.154.37)' can't be established.
+ED25519 key fingerprint is SHA256:3h30cHt+Cn48B+oV8a4e9bpRhfkaKx7O1FGMRgkrJlA.
+This key is not known by any other names
+The authenticity of host '18.208.152.96 (18.208.152.96)' can't be established.
+ED25519 key fingerprint is SHA256:W13lyWhUma0ZgHWFxX4c1dbujPnhAY6U94HgCHGj+ZQ.
+This key is not known by any other names
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+chinthala-server1 | SUCCESS => {
+    "changed": false,
+    "ping": "pong"
+}
+yes
+mahesh-server2 | SUCCESS => {
+    "changed": false,
+    "ping": "pong"
+}
+
+creating s3 bucket using ansible
+
+---
+- hosts: localhost
+  tasks:
+    - name: creating s3 bucket
+      amazon.aws.s3_bucket:
+        name: mahesh-ca3-chintu-bucket
+        state: present
+
+output- 
+
+ubuntu@ip-172-31-88-205:~/ansible$ ansible-playbook ca3-s3-bucket.yml
+
+PLAY [localhost] ***********************************************************************************************************************************************************
+
+TASK [Gathering Facts] *****************************************************************************************************************************************************
+ok: [localhost]
+
+TASK [creating s3 bucket] **************************************************************************************************************************************************
+changed: [localhost]
+
+PLAY RECAP *****************************************************************************************************************************************************************
+localhost                  : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
